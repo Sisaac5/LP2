@@ -28,11 +28,12 @@ int main(int argc, char *argv[]){
         }
 
         if(getpid() != pid_p){
+            srand((unsigned)time(NULL) * getpid());
             setpgid(0, pgid);
             int dis_percorrida = 0, jump;
-            while(dis_percorrida < tam_pista * 100){
+            while(dis_percorrida < tam_pista){
 
-                jump = rand() % 100;
+                jump = rand() % 10;
                 dis_percorrida += jump;
                 printf("[lebre %d] pulei %d totalizando %d\n", i+1, jump, dis_percorrida);
                 usleep(100);

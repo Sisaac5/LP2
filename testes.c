@@ -13,6 +13,9 @@ int main(){
     num_processos = fork();
     if(num_processos != 0){
         printf("[pai] o pid do meu filho é %d\n", num_processos);
+        printf("[pai] Morri\n");
+        sleep(1);
+        exit(0);
     }
 
     if(num_processos == 0){
@@ -22,6 +25,7 @@ int main(){
         while (1)
         {
             printf("KKKK\n");
+            sleep(1);
         }
         
     }

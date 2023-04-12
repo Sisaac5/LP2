@@ -1,0 +1,23 @@
+ALOCAÇÃO DINÂMICA DE UM PONTEIRO PARA GUARDAR OS PIDS
+	pid_array = (int*)malloc(sizeof(int)*qtd_proc);
+
+USO DA FUNÇÃO WAITPID E CAPTURA DO RETORNO DE UM PROCESSO FILHO
+	waitpid(int pid_filho, &valorRetorno, 0)
+	printf("[o] exit: %d\n", WEXITSTATUS(valorRetorno)
+	
+USO DA FUNÇÃO WAIT E CAPTURA DO RETORNO DO PRIMEIRO PROCESSO FILHO FINALIZADO
+	wait(&wait_return);
+	printf("[po] clonado saiu: %d\n", WEXITSTATUS(wait_return));
+
+GUARDANDO VALOR DE RETORNO DE UMA THREAD NO PROCESSO PRINCIPAL
+	retorno da thread: return (void*)100+index;
+	aguadando pelo seu retorno e capturando o seu valor:
+	pthread_join(threads[i], (void**) &thread_ret_val[i]);
+	printf("[m] thread %d retornou %d\n", i, thread_ret_val[i]);
+
+CRIANDO UMA THREAD
+	pthread_create(pthread_t_variavel, NULL, funcao_thread, (void*)&struct); //passando uma estrutura como entrada
+
+
+
+https://github.com/MateusFreitas-C/LP2 

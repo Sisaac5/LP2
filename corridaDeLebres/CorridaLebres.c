@@ -13,20 +13,18 @@ typedef struct {
 void* corrida(void* info){
     int distpercorrida = 0;
     runner_t *runner = (runner_t*) info;
+    srand((unsigned)time(NULL) * runner->number);
 
     while(distpercorrida < runner->dist && !fim){
-        int jump = rand() % 45;
-
+        int jump = rand() % 10;
         distpercorrida += jump;
-
         printf("[%d] pulou %d cm (total: %d)\n", runner->number, jump, distpercorrida);
-        usleep(100);
+        usleep(150);
     }
 
-    if(distpercorrida > runner->dist){
-        fim = 1;
-        printf("A lebre %d VENCEU A CORRIDA!!\n", runner->number);
-    }
+    printf("A lebre %d VENCEU A CORRIDA!!\n", runner->number);
+    exit(0);
+
 }
 
 int main(int argc, char *argv[]){

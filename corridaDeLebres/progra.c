@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <time.h>
 
-#define EXEC_PATH1 "/home/isaac/UFPB/LP2/corridaDeLebres/processos"
-#define EXEC_PATH2 "/home/isaac/UFPB/LP2/corridaDeLebres/threads"
+#define EXEC_PATH1 "/home/aluno/aluno/LP2-master/corridaDeLebres/processos"
+#define EXEC_PATH2 "/home/aluno/aluno/LP2-master/corridaDeLebres/threads"
 
 int main(int argc, char *argv[]){
 
@@ -19,7 +20,7 @@ int main(int argc, char *argv[]){
     }
 
     else if(!strcmp(argv[1], "-p")){
-        char *args[] = { "./processos", "2", "1000", NULL};   
+        char *args[] = { "./processos",argv[2], argv[3], NULL};   
 		printf("Entrando no modo processos\n");
 		int exec_return = execv(EXEC_PATH1, args);
         printf("Erro %d\n", exec_return);
